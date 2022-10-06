@@ -1,19 +1,13 @@
 import "./App.css";
+import Prologue from "./scripts/prologue.js";
 
-function App() {
+const App = () => {
   return (
-    <div class="book">
-      <span class="page turn"></span>
-      <span class="page turn"></span>
-      <span class="page turn"></span>
-      <span class="page turn"></span>
-      <span class="page turn"></span>
-      <span class="page turn"></span>
-      <span class="cover"></span>
-      <span class="page"></span>
-      <span class="cover turn"></span>
+    <div class="container">
+      <Prologue />
+      <Prologue />
     </div>
   );
-}
+};
 
 export default App;

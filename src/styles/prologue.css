@@ -1,0 +1,173 @@
+/*  {
+  z-index: 1;
+  perspective: 500rem;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+} */
+@import url("https://fonts.googleapis.com/css?family=Gothic+A1:100,200,300,400,500,600,700,800,900");
+.book {
+  position: relative;
+  display: block;
+  width: 20vw;
+  height: 28vw;
+  margin: auto;
+  border-radius: 2% 3% 3% 2%;
+  /* background: linear-gradient(45deg, #dad5dc 0%, #a965bb 100%); */
+  /* font-family: acumin-pro, sans-serif; */
+  box-shadow: 0.52vw 0.52vw 0.52vw 0px rgba(121, 121, 121, 0.2);
+  /* font-weight: 400; */
+  /* color: #2b2b2b; */
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 0.5s;
+  -moz-transition: -moz-transform 0.5s;
+  /* transition: transform 0.5s; */
+  transition: transform 2s;
+  -webkit-transform: rotate3d(0, 1, 0, 40deg);
+  -moz-transform: rotate3d(0, 1, 0, 40deg);
+  transform: rotate3d(0, 1, 0, 40deg);
+}
+
+.book:hover {
+  transform: rotate3d(0, 1, 0, 40deg) translateY(-5.2083vw);
+}
+
+.book > div,
+.front > div {
+  display: block;
+  position: absolute;
+}
+
+.front {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  /* -webkit-transform-origin: 0% 50%;
+  -moz-transform-origin: 0% 50%;
+  transform-origin: 0% 50%; */
+  /* -webkit-transition: -webkit-transform 0.5s;
+  -moz-transition: -moz-transform 0.5s;
+  transition: transform 0.5s; */
+  /* -webkit-transform: translate3d(0, 0, 20px);
+  -moz-transform: translate3d(0, 0, 20px);
+  transform: translate3d(0, 0, 20px); */
+  -webkit-transform: translate3d(0, 0, 1.0416vw);
+  -moz-transform: translate3d(0, 0, 1.0416vw);
+  transform: translate3d(0, 0, 1.0416vw);
+  z-index: 10;
+}
+
+.front > div {
+  width: 20vw;
+  height: 28vw;
+}
+
+.left-side {
+  width: 2.0832vw;
+  left: -1.0416vw;
+  height: 28vw;
+  background-color: rgba(232, 229, 234);
+  -webkit-transform: rotate3d(0, 1, 0, -90deg);
+  -moz-transform: rotate3d(0, 1, 0, -90deg);
+  transform: rotate3d(0, 1, 0, -90deg);
+}
+
+.cover svg {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  margin-top: -100px;
+  margin-left: -110px;
+  width: 300px;
+}
+
+#eye-right {
+  padding-left: 185px;
+}
+
+.cover .num-up {
+  position: absolute;
+  top: 64px;
+  left: 47px;
+  letter-spacing: 50px;
+}
+
+.front > div {
+  border-radius: 0 2% 2% 0;
+  /* box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1); */
+}
+
+.front:after {
+  /* content: "";
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  left: -1px;
+  width: 1px; */
+}
+
+.cover:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10px;
+  bottom: 0;
+  width: 2px;
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
+}
+
+h2 {
+  background-color: rebeccapurple;
+  width: 28vw;
+  height: 2.0832vw;
+  color: #2b2b2b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding-left: 50%; */
+  /* line-height: 40px; */
+  /* padding-left: 10px;
+  text-align: center; */
+  -webkit-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: rotate(90deg) translateY(-40px);
+  -moz-transform: rotate(90deg) translateY(-40px);
+  transform: rotate(90deg) translateY(-40px);
+}
+
+.cover {
+  background: linear-gradient(45deg, #dad5dc 0%, #f2ebf4 100%);
+  box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.left-side > div {
+  display: flex;
+  width: 28vw;
+  height: 2.0832vw;
+  justify-content: space-around;
+  align-items: center;
+  -webkit-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: rotate(90deg) translateY(-40px);
+  -moz-transform: rotate(90deg) translateY(-40px);
+  transform: rotate(90deg) translateY(-40px);
+}
+
+.left-side span:first-child {
+  /* padding-left: 14vw; */
+  font-size: 60%;
+  font-family: "Gothic A1";
+  font-weight: 900;
+}
+
+.left-side span:last-child {
+  padding-right: 2.0832vw;
+  font-size: 10%;
+  font-family: "Gothic A1";
+  font-weight: 300;
+}
