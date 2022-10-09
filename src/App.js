@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./App.module.css";
 import Prologue from "./scripts/prologue.js";
 import Sophomore from "./scripts/sophomore.js";
