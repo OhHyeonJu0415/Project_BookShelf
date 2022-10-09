@@ -1,9 +1,19 @@
 import stylesFound from "../styles/foundation.module.css";
 import styles from "../styles/bookShelf.module.css";
+import { setBook } from "../store/modules/book";
+import { useDispatch, useSelector } from "react-redux";
 
 const Foundation = () => {
+  const book = useSelector((state) => state.book);
+  const dispatch = useDispatch();
+
   return (
-    <div className={styles.book}>
+    <div
+      className={styles.book}
+      onClick={() => {
+        dispatch(setBook("foundation"));
+      }}
+    >
       <div className={styles.front}>
         <div className={[styles.cover, stylesFound.cover].join(" ")}>
           {/* <div className="coverBox"> */}

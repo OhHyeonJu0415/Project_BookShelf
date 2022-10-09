@@ -1,3 +1,7 @@
+.displayNone {
+  display: none;
+}
+
 .book {
   position: relative;
   display: block;

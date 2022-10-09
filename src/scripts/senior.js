@@ -1,14 +1,25 @@
+import React from "react";
 import styles from "../styles/bookShelf.module.css";
 import stylesSenior from "../styles/senior.module.css";
+import { setBook } from "../store/modules/book";
+import { useDispatch, useSelector } from "react-redux";
 
 const Senior = () => {
+  const book = useSelector((state) => state.book);
+  const dispatch = useDispatch();
+
   return (
-    <div className={styles.book}>
+    <div
+      className={styles.book}
+      onClick={() => {
+        dispatch(setBook("senior"));
+      }}
+    >
       <div className={styles.front}>
         <div className={[styles.cover, stylesSenior.cover].join(" ")}>
           {/* <div className="coverBox"> */}
           <span>Senior</span>
-          <span>2018</span>
+          <span>2022</span>
           {/* </div> */}
         </div>
         <div></div>
