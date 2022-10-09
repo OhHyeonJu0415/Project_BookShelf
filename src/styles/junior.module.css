@@ -5,3 +5,12 @@
 .leftSide {
   background-color: #4e3894;
 }
+
+.cover span:first-child {
+  top: 6vw;
+  left: -1.4vw;
+}
+
+.cover span:last-child {
+  border-top: solid 4px #988415;
+}

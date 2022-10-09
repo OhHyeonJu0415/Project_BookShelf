@@ -1,7 +1,24 @@
 .cover {
-  background-color: #6f55c5;
+  background-color: #8f7bd2;
 }
 
 .leftSide {
-  background-color: #6f55c5;
+  background-color: #8f7bd2;
+}
+
+.cover > span {
+  color: #eddef5;
+}
+
+.cover span:first-child {
+  top: 6vw;
+  left: -2vw;
+}
+
+.cover span:last-child {
+  border-top: solid 4px #a69a59;
+}
+
+.leftSide {
+  color: #eddef5;
 }

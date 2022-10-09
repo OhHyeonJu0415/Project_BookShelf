@@ -76,19 +76,21 @@
   font-family: "worldBold";
   font-size: 2.2vw;
   letter-spacing: 1vw;
-  color: rgb(197, 180, 207);
+  color: #c5b4cf;
 }
 
 .cover span:first-child {
-  top: 8.4vw;
+  top: 8vw;
   left: -3.8vw;
 }
 
 .cover span:last-child {
-  top: 14.6vw;
+  top: 4vw;
   left: 5vw;
   font-size: 1.2vw;
   letter-spacing: 0.8vw;
+  border-top: solid 4px #6e6012;
+  padding: 0.8vw 0 0 0.8vw;
 }
 
 .leftSide {
@@ -99,7 +101,7 @@
   -webkit-transform: rotate3d(0, 1, 0, -90deg);
   -moz-transform: rotate3d(0, 1, 0, -90deg);
   transform: rotate3d(0, 1, 0, -90deg);
-  color: rgb(197, 180, 207);
+  color: #c5b4cf;
 }
 
 .leftSide > div {
