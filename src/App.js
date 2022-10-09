@@ -3,8 +3,7 @@ import Prologue from "./scripts/prologue.js";
 
 const App = () => {
   return (
-    <div class="container">
-      <Prologue />
+    <div className="container">
       <Prologue />
     </div>
   );
