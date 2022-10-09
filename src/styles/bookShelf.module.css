@@ -5,7 +5,6 @@
   justify-content: center;
   margin: auto;
 } */
-@import url("https://fonts.googleapis.com/css?family=Gothic+A1:100,200,300,400,500,600,700,800,900");
 .book {
   position: relative;
   display: block;
@@ -40,15 +39,6 @@
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  /* -webkit-transform-origin: 0% 50%;
-  -moz-transform-origin: 0% 50%;
-  transform-origin: 0% 50%; */
-  /* -webkit-transition: -webkit-transform 0.5s;
-  -moz-transition: -moz-transform 0.5s;
-  transition: transform 0.5s; */
-  /* -webkit-transform: translate3d(0, 0, 20px);
-  -moz-transform: translate3d(0, 0, 20px);
-  transform: translate3d(0, 0, 20px); */
   -webkit-transform: translate3d(0, 0, 1.5vw);
   -moz-transform: translate3d(0, 0, 1.5vw);
   transform: translate3d(0, 0, 1.5vw);
@@ -58,14 +48,13 @@
 .front > div {
   border-radius: 0 2% 2% 0;
   /* box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1); */
+  /* box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1); */
   width: 20vw;
   height: 28vw;
 }
 
 .cover {
-  /* background: linear-gradient(45deg, #dad5dc 0%, #f2ebf4 100%); */
-  /* background-color: rgb(168, 153, 255); */
-  background-color: #4b375b;
+  background-color: #1f163c;
   box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -124,13 +113,13 @@
   /* text-shadow: 0px 2.2vw hsla(249, 100%, 80%, 1); */
 }
 
-.left-side {
+.leftSide {
   /* background-color: rgb(168, 153, 255); */
   width: 2.53vw;
   left: -1.02vw;
   height: 28vw;
   /* background-color: rgba(232, 229, 234); */
-  background-color: #4b375b;
+  background-color: #1f163c;
   -webkit-transform: rotate3d(0, 1, 0, -90deg);
   -moz-transform: rotate3d(0, 1, 0, -90deg);
   transform: rotate3d(0, 1, 0, -90deg);
@@ -138,7 +127,7 @@
   color: rgb(197, 180, 207);
 }
 
-.left-side > div {
+.leftSide > div {
   display: flex;
   width: 28vw;
   height: 2.53vw;
@@ -156,13 +145,13 @@
   transform: rotate(90deg) translateY(-40px); */
 }
 
-.left-side span:first-child {
+.leftSide span:first-child {
   font-size: 0.9375vw;
   font-family: "worldBold";
   letter-spacing: 0.1vw;
 }
 
-.left-side span:last-child {
+.leftSide span:last-child {
   font-size: 0.677vw;
   font-family: "dotumMedium";
   letter-spacing: 0.1vw;

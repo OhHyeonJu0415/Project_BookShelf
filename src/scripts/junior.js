@@ -1,13 +1,13 @@
-// import "../styles/prologue.css";
+import stylesJunior from "../styles/junior.module.css";
 import styles from "../styles/bookShelf.module.css";
 
-const Prologue = () => {
+const Junior = () => {
   return (
     <div className={styles.book}>
       <div className={styles.front}>
-        <div className={styles.cover}>
+        <div className={[styles.cover, stylesJunior.cover].join(" ")}>
           {/* <div className="coverBox"> */}
-          <span>Prologue</span>
+          <span>Junior</span>
           <span>2018</span>
           {/* </div> */}
         </div>
@@ -16,10 +16,10 @@ const Prologue = () => {
         <div></div>
         <div></div>
       </div>
-      <div className={styles.leftSide}>
+      <div className={[styles.leftSide, stylesJunior.leftSide].join(" ")}>
         {/* <h2> */}
         <div>
-          <span>Prologue</span>
+          <span>Junior</span>
           <span>오현주 지음</span>
         </div>
         {/* </h2> */}
@@ -28,4 +28,4 @@ const Prologue = () => {
   );
 };
 
-export default Prologue;
+export default Junior;
