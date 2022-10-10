@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-// import "../styles/prologue.css";
-import styles from "../styles/bookShelf.module.css";
-import { setBook } from "../store/modules/book";
+import React from "react";
+import styles from "../../styles/books/bookShelf.module.css";
+import stylesSenior from "../../styles/books/senior.module.css";
+import { setBook } from "../../store/modules/book";
 import { useDispatch, useSelector } from "react-redux";
 
-const Prologue = () => {
+const Senior = () => {
   const book = useSelector((state) => state.book);
   const dispatch = useDispatch();
 
@@ -12,14 +12,14 @@ const Prologue = () => {
     <div
       className={styles.book}
       onClick={() => {
-        dispatch(setBook("prologe"));
+        dispatch(setBook("senior"));
       }}
     >
       <div className={styles.front}>
-        <div className={styles.cover}>
+        <div className={[styles.cover, stylesSenior.cover].join(" ")}>
           {/* <div className="coverBox"> */}
-          <span>Prologue</span>
-          <span>2018</span>
+          <span>Senior</span>
+          <span>2022</span>
           {/* </div> */}
         </div>
         <div></div>
@@ -27,21 +27,16 @@ const Prologue = () => {
         <div></div>
         <div></div>
       </div>
-      <div className={styles.leftSide}>
+      <div className={[styles.leftSide, stylesSenior.leftSide].join(" ")}>
         {/* <h2> */}
         <div>
-          <span>Prologue</span>
+          <span>Senior</span>
           <span>오현주 지음</span>
         </div>
         {/* </h2> */}
       </div>
-
-      {/* 뒷 표지 */}
-      {/* <div className={styles.back}>
-        <div className={[styles.cover].join(" ")}></div>
-      </div> */}
     </div>
   );
 };
 
-export default Prologue;
+export default Senior;

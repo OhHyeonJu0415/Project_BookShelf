@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "../styles/bookShelf.module.css";
-import stylesSenior from "../styles/senior.module.css";
-import { setBook } from "../store/modules/book";
+import stylesJunior from "../../styles/books/junior.module.css";
+import styles from "../../styles/books/bookShelf.module.css";
+import { setBook } from "../../store/modules/book";
 import { useDispatch, useSelector } from "react-redux";
 
-const Senior = () => {
+const Junior = () => {
   const book = useSelector((state) => state.book);
   const dispatch = useDispatch();
 
@@ -12,14 +12,14 @@ const Senior = () => {
     <div
       className={styles.book}
       onClick={() => {
-        dispatch(setBook("senior"));
+        dispatch(setBook("junior"));
       }}
     >
       <div className={styles.front}>
-        <div className={[styles.cover, stylesSenior.cover].join(" ")}>
+        <div className={[styles.cover, stylesJunior.cover].join(" ")}>
           {/* <div className="coverBox"> */}
-          <span>Senior</span>
-          <span>2022</span>
+          <span>Junior</span>
+          <span>2020</span>
           {/* </div> */}
         </div>
         <div></div>
@@ -27,10 +27,10 @@ const Senior = () => {
         <div></div>
         <div></div>
       </div>
-      <div className={[styles.leftSide, stylesSenior.leftSide].join(" ")}>
+      <div className={[styles.leftSide, stylesJunior.leftSide].join(" ")}>
         {/* <h2> */}
         <div>
-          <span>Senior</span>
+          <span>Junior</span>
           <span>오현주 지음</span>
         </div>
         {/* </h2> */}
@@ -39,4 +39,4 @@ const Senior = () => {
   );
 };
 
-export default Senior;
+export default Junior;

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import styles from "../styles/bookShelf.module.css";
-import stylesSoph from "../styles/sophomore.module.css";
-import { setBook } from "../store/modules/book";
+import styles from "../../styles/books/bookShelf.module.css";
+import stylesSoph from "../../styles/books/sophomore.module.css";
+import { setBook } from "../../store/modules/book";
 import { useDispatch, useSelector } from "react-redux";
 
 const Sophomore = () => {
@@ -9,9 +9,9 @@ const Sophomore = () => {
   const dispatch = useDispatch();
   // console.log(book.book);
 
-  useEffect(() => {
-    console.log(book);
-  }, [book]);
+  // useEffect(() => {
+  //   console.log(book);
+  // }, [book]);
 
   return (
     <div

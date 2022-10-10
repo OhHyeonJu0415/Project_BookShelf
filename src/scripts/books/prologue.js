@@ -1,9 +1,10 @@
-import stylesFound from "../styles/foundation.module.css";
-import styles from "../styles/bookShelf.module.css";
-import { setBook } from "../store/modules/book";
+import React, { useEffect } from "react";
+// import "../styles/prologue.css";
+import styles from "../../styles/books/bookShelf.module.css";
+import { setBook } from "../../store/modules/book";
 import { useDispatch, useSelector } from "react-redux";
 
-const Foundation = () => {
+const Prologue = () => {
   const book = useSelector((state) => state.book);
   const dispatch = useDispatch();
 
@@ -11,14 +12,14 @@ const Foundation = () => {
     <div
       className={styles.book}
       onClick={() => {
-        dispatch(setBook("foundation"));
+        dispatch(setBook("prologe"));
       }}
     >
       <div className={styles.front}>
-        <div className={[styles.cover, stylesFound.cover].join(" ")}>
+        <div className={styles.cover}>
           {/* <div className="coverBox"> */}
-          <span>Foundation</span>
-          <span>2021</span>
+          <span>Prologue</span>
+          <span>2018</span>
           {/* </div> */}
         </div>
         <div></div>
@@ -26,10 +27,10 @@ const Foundation = () => {
         <div></div>
         <div></div>
       </div>
-      <div className={[styles.leftSide, stylesFound.leftSide].join(" ")}>
+      <div className={styles.leftSide}>
         {/* <h2> */}
         <div>
-          <span>Foundation</span>
+          <span>Prologue</span>
           <span>오현주 지음</span>
         </div>
         {/* </h2> */}
@@ -43,4 +44,4 @@ const Foundation = () => {
   );
 };
 
-export default Foundation;
+export default Prologue;
