@@ -10,6 +10,7 @@ const Senior = () => {
 
   return (
     <div
+      id="senior"
       className={styles.book}
       onClick={() => {
         dispatch(setBook("senior"));

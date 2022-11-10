@@ -5,12 +5,16 @@ import Sophomore from "./scripts/books/sophomore.js";
 import Junior from "./scripts/books/junior.js";
 import Foundation from "./scripts/books/foundation";
 import Senior from "./scripts/books/senior.js";
-import LeftArrow from "./scripts/common/arrow";
+import { setBook } from "./store/modules/book";
+import { useDispatch, useSelector } from "react-redux";
 
 const App = () => {
+  const book = useSelector((state) => state.book);
+  // const dispatch = useDispatch();
+
   return (
     <div className={styles.container}>
-      <LeftArrow />
+      {console.log(book)}
       <Prologue />
       <Sophomore />
       <Junior />

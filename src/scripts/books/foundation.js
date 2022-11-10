@@ -9,6 +9,7 @@ const Foundation = () => {
 
   return (
     <div
+      id="foundation"
       className={styles.book}
       onClick={() => {
         dispatch(setBook("foundation"));

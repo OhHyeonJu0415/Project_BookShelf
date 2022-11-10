@@ -1,4 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 .container {
+  position: relative;
   z-index: 1;
   perspective: 500rem;
   display: flex;
