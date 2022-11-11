@@ -1,3 +1,7 @@
+.container {
+  left: calc(70% + 2.1vw);
+}
+
 .cover {
   background-color: #8f7bd2;
 }

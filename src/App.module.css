@@ -6,22 +6,27 @@
 body {
   overflow-x: hidden;
   overflow-y: hidden;
+  position: relative;
 }
 
 .container {
-  position: relative;
+  position: absolute;
   z-index: 1;
   perspective: 500rem;
+  width: 70%;
+  height: 28vw;
   display: flex;
-  width: 100vw;
-  height: 100vh;
   justify-content: center;
-  margin: auto;
   align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.container:nth-child(n) {
-  width: 63%;
+.arrow {
+  position: absolute;
+  top: -30%;
+  left: -15%;
 }
 
 /* kopubWorld */
