@@ -7,19 +7,13 @@ import { useDispatch, useSelector } from "react-redux";
 const Sophomore = () => {
   const book = useSelector((state) => state.book);
   const dispatch = useDispatch();
-  // console.log(book.book);
-
-  // useEffect(() => {
-  //   console.log(book);
-  // }, [book]);
 
   const checkState = () => {
     dispatch(setBook("sophomore"));
-    console.log(book);
 
     //프롤로그 책 올리기
     let element = document.getElementById("sophomore");
-    element.style.transform = "scale(1.3)";
+    element.style.cssText = "transform:scale(1.3)translateX(100%)";
 
     //나머지 책 내리기
     document.getElementById("prologue").style.transform = "translateY(100vw)";
@@ -31,19 +25,12 @@ const Sophomore = () => {
   return (
     <div
       id="sophomore"
-      className={styles.book}
+      className={[styles.book, stylesSoph.container].join(" ")}
       onClick={() => {
         checkState();
       }}
     >
-      <div
-        className={styles.front}
-        onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          alert("hi");
-        }}
-      >
+      <div className={styles.front}>
         <div className={[styles.cover, stylesSoph.cover].join(" ")}>
           {/* <div className="coverBox"> */}
           <span>Sophomore</span>

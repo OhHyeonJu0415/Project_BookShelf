@@ -7,12 +7,26 @@ const Foundation = () => {
   const book = useSelector((state) => state.book);
   const dispatch = useDispatch();
 
+  const checkState = () => {
+    //redux 값 변경
+    dispatch(setBook("foundation"));
+
+    //책 올리기
+    let element = document.getElementById("foundation");
+    element.style.cssText = "transform:scale(1.3)";
+    //나머지 책 내리기
+    document.getElementById("sophomore").style.transform = "translateY(100vw)";
+    document.getElementById("junior").style.transform = "translateY(100vw)";
+    document.getElementById("prologue").style.transform = "translateY(100vw)";
+    document.getElementById("senior").style.transform = "translateY(100vw)";
+  };
+
   return (
     <div
       id="foundation"
-      className={styles.book}
-      onClick={() => {
-        dispatch(setBook("foundation"));
+      className={[styles.book, stylesFound.container].join(" ")}
+      onClick={(event) => {
+        checkState(event);
       }}
     >
       <div className={styles.front}>
