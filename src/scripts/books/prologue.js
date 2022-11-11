@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
-// import "../styles/prologue.css";
+import stylesPro from "../../styles/books/prologue.module.css";
 import styles from "../../styles/books/bookShelf.module.css";
 import { setBook } from "../../store/modules/book";
 import { useDispatch, useSelector } from "react-redux";
-import Arrow from "../common/arrow";
 
 // window.onload = function () {
 //   document
@@ -25,7 +24,7 @@ const Prologue = () => {
 
     //프롤로그 책 올리기
     let element = document.getElementById("prologue");
-    element.style.cssText = "transform:scale(1.3)";
+    element.style.cssText = "transform:scale(1.3)translateX(150%)";
     //나머지 책 내리기
     document.getElementById("sophomore").style.transform = "translateY(100vw)";
     document.getElementById("junior").style.transform = "translateY(100vw)";
@@ -37,12 +36,12 @@ const Prologue = () => {
     // <div className={styles.book}>
     <div
       id="prologue"
-      className={styles.book}
+      className={[styles.book, stylesPro.container].join(" ")}
       onClick={(event) => {
         checkState(event);
       }}
     >
-      {book.book === "prologue" ? ( //책 덮기
+      {/* {book.book === "prologue" ? ( //책 덮기
         <div
           id="prologueArrow"
           className={styles.arrow}
@@ -56,8 +55,10 @@ const Prologue = () => {
 
             //책 복구하기
             //프롤로그 책 올리기
-            let element = document.getElementById("prologue");
-            element.style.removeProperty("transform");
+            document
+              .getElementById("prologue")
+              .style.removeProperty("transform");
+
             //나머지 책 내리기
             document
               .getElementById("sophomore")
@@ -73,12 +74,22 @@ const Prologue = () => {
         </div>
       ) : (
         <></>
-      )}
+      )} */}
       <div className={styles.front}>
-        <div className={styles.cover}>
+        <div
+          className={[
+            styles.cover,
+            book.book === "prologue" ? styles.coverRotate : "",
+          ].join(" ")}
+        >
           <span>Prologue</span>
           <span>2018</span>
         </div>
+        {book.book === "prologue" ? (
+          <div className={styles.coverBack} />
+        ) : (
+          <></>
+        )}
         <div className={styles.page0}></div>
         <div className={styles.page1}></div>
         <div className={styles.page2}></div>
