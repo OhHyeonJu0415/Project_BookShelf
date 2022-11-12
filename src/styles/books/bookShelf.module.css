@@ -2,6 +2,13 @@
   display: none;
 }
 
+.arrow {
+  position: absolute;
+  top: 500px;
+  /* top: -2vh;
+  left: -35vw; */
+}
+
 .book {
   position: absolute;
   width: 20vw;
@@ -27,7 +34,8 @@
 
 .book > div,
 .contents > div,
-.flipBasePage > div {
+.flipBasePage > div,
+.pages > div {
   position: absolute;
 }
 
@@ -43,7 +51,8 @@
 }
 
 .contents > div,
-.flipBasePage > div {
+.flipBasePage > div,
+.pages > div {
   border-radius: 0 2% 2% 0;
 }
 
@@ -114,7 +123,7 @@
 
 .leftSide {
   width: 4vw;
-  left: -2vw;
+  left: -1.9vw;
   /* left: -3vw; */
   height: 28vw;
   background-color: #1f163c;
@@ -216,7 +225,13 @@
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
   border-radius: 0 2% 2% 0;
-  top: 0.7vw;
+  /* top: 0.7vw; */
+  top: 1vw;
+  /* top: calc((28vw * 0.9 - 28vw) * -1 / 2); */
+}
+
+.flipBasePage:last-child {
+  box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .flipBasePageOpen {
@@ -225,7 +240,7 @@
 
 .basePage {
   transform-origin: 0% 50%;
-  animation: flipBook 3s forwards;
+  animation: flipBookPage 3s 0.6s forwards;
   left: 1.5vw;
   width: calc(20vw * 0.9);
   height: calc(28vw * 0.9);
@@ -233,11 +248,8 @@
   box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.basepageDeg {
-  animation: flipBookPage 3s 0.1s forwards;
-}
-
 .basePage0 {
+  animation: flipBook 2.4s 0.6s forwards;
   background-color: #f7f7f7;
   left: 1.2vw;
   top: 0.05vw;
@@ -249,6 +261,7 @@
 }
 
 .basePage1 {
+  animation: flipBook 2.6s 0.4s forwards;
   background-color: #eee;
   left: 1vw;
   top: 0.1vw;
@@ -260,6 +273,7 @@
 }
 
 .basePage2 {
+  animation: flipBook 2.7s 0.3s forwards;
   background-color: #e6e6e6;
   left: 0.75vw;
   top: 0.15vw;
@@ -271,6 +285,7 @@
 }
 
 .basePage3 {
+  animation: flipBook 2.8s 0.2s forwards;
   background-color: #ddd;
   left: 0.5vw;
   top: 0.2vw;
@@ -282,6 +297,7 @@
 }
 
 .basePage4 {
+  animation: flipBook 2.9s 0.1s forwards;
   background-color: #d5d5d5;
   left: 0.25vw;
   top: 0.25vw;
@@ -292,17 +308,51 @@
   animation: none;
 }
 
-.page0 {
-  top: 0.7vw;
+.pages {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  top: 1vw;
   left: 1.5vw;
-  z-index: 9;
+  /* z-index: 9; */
   width: calc(20vw * 0.9);
   height: calc(28vw * 0.9);
-  background-color: white;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.pages > div {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.closeCover {
+  animation: closeBookLeft 3s forwards;
+}
+
+.closePageLeft {
+  animation: closeBookLeftPage 3s forwards;
+}
+
+.closeCoverBack {
+  animation: closeCover 3s forwards;
+}
+
+.closePageRight {
+  animation: closeBasePage 3s forwards;
+}
+
+.closeLeftSide {
+  animation: closeLeftSide 3s forwards;
+}
+
+.mainPage {
+  animation: mainPage 3s forwards;
+}
+
 @keyframes flipBook {
+  /* 책 열릴때 앞 표지 + 왼쪽 베이스 페이지  */
   from {
     transform: rotateY(0);
   }
@@ -312,15 +362,17 @@
 }
 
 @keyframes flipBookPage {
+  /* 책 열릴때 왼쪽 첫 베이스 페이지  */
   from {
     transform: rotateY(0);
   }
   to {
-    transform: rotateY(-155deg);
+    transform: rotateY(-160deg);
   }
 }
 
 @keyframes openBook {
+  /* 책 열릴때 뒷 표지 */
   from {
     width: 17vw;
   }
@@ -330,10 +382,100 @@
 }
 
 @keyframes openBasePage {
+  /* 책 열릴때 오른쪽 베이스 페이지 */
   from {
     left: -1.5vw;
   }
   to {
     left: 0vw;
+  }
+}
+
+@keyframes closeBookLeft {
+  /* 책 닫힐때 앞 표지 뒷면 + 오른쪽 베이스 페이지 */
+  from {
+    transform: rotateY(-170deg);
+    box-shadow: none;
+  }
+
+  /* 
+  70% {
+    transform: rotateY(-30deg);
+  } */
+
+  to {
+    transform: rotateY(0deg);
+    box-shadow: none;
+  }
+}
+
+@keyframes closeBookLeftPage {
+  /* 책 닫힐때 왼쪽 첫 베이스 페이지  */
+  from {
+    transform: rotateY(-160deg);
+  }
+
+  /* 70% {
+    transform: rotateY(-30deg);
+  } */
+
+  to {
+    transform: rotateY(0);
+  }
+}
+
+@keyframes closeCover {
+  /* 책 닫힐때 뒷 표지  */
+  from {
+    width: 20vw;
+    left: 3vw;
+    transform: none;
+  }
+  to {
+    width: 20vw;
+    left: 0vw;
+    transform: translateZ(-4vw);
+  }
+}
+
+@keyframes closeBasePage {
+  /* 책 닫힐때 오른쪽 베이스 페이지 */
+  from {
+    left: 0vw;
+    transform: translateY(0);
+  }
+  to {
+    left: -1.8vw;
+    transform: translateY(1.5vw);
+  }
+}
+
+@keyframes closeLeftSide {
+  /* 책 닫힐때 옆 부분 뒷면 */
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(90deg) translateZ(-1.5vw) translateY(0.6vw);
+  }
+}
+
+@keyframes closeCoverBackShadow {
+  /* 책 닫힐때 앞 표지 뒷면 */
+  from {
+    box-shadow: 0.52vw 0.52vw 0.52vw 0px rgb(121 121 121 / 20%);
+  }
+  to {
+    box-shadow: none;
+  }
+}
+
+@keyframes mainPage {
+  /* 책 닫힐때 오른쪽 메인 페이지 */
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(1.5vw);
   }
 }
