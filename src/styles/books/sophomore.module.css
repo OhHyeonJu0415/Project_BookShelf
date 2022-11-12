@@ -1,5 +1,5 @@
 .container {
-  left: calc(17.5% + 0.7vw);
+  left: calc(17.5% - 0.3vw);
 }
 
 .cover {
