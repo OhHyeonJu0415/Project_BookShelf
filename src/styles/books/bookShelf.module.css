@@ -2,15 +2,12 @@
   display: none;
 }
 
-.container {
-}
-
 .book {
   position: absolute;
   width: 20vw;
   height: 28vw;
   border-radius: 2% 3% 3% 2%;
-  box-shadow: 0.52vw 0.52vw 0.52vw 0px rgba(121, 121, 121, 0.2);
+  /* box-shadow: 0.52vw 0.52vw 0.52vw 0px rgba(121, 121, 121, 0.2); */
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
@@ -29,12 +26,13 @@
 }
 
 .book > div,
-.front > div {
-  display: block;
+.contents > div,
+.flipBasePage > div {
   position: absolute;
 }
 
-.front {
+.contents {
+  display: flex;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
@@ -44,13 +42,14 @@
   z-index: 10;
 }
 
-.front > div {
+.contents > div,
+.flipBasePage > div {
   border-radius: 0 2% 2% 0;
-  width: 20vw;
-  height: 28vw;
 }
 
 .cover {
+  width: 20vw;
+  height: 28vw;
   background-color: #1f163c;
   box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1);
   z-index: 10;
@@ -100,8 +99,11 @@
 }
 
 .coverBack {
+  width: 20vw;
+  height: 28vw;
   background-color: #1f163c;
-  box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1);
+  /* box-shadow: inset 4px 0 10px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0.52vw 0.52vw 0.52vw 0px rgba(121, 121, 121, 0.2);
   z-index: 9;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -160,18 +162,144 @@
   transform: translateX(150%);
 }
 
-.arrow {
-  /* top: -12%;
-  left: -70%; */
-  top: -10%;
-  /* z-index: 500; */
+.sideBack {
+  z-index: -1;
+  width: 3vw;
+  height: 28vw;
+  background: linear-gradient(
+    to right,
+    #1f163c 0%,
+    #3d3852 45%,
+    #3d3852 55%,
+    #1f163c 100%
+  );
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.sideCircle {
+  position: absolute;
+  width: 3vw;
+  height: 0.6vw;
+  border-radius: 50%;
+}
+
+.sideCircleUp {
+  top: -0.1vw;
+  background: linear-gradient(
+    to right,
+    #1f163c 0%,
+    #3d3852 40%,
+    /* #3d3852 55%, */ #1f163c 100%
+  );
+}
+
+.sideCircleDown {
+  background-color: #d1c2f2;
+  bottom: -0.3vw;
+  /* box-shadow: inset 0.05vw 0.05vw 0.1vw 0px rgba(144, 137, 137, 0.2); */
+}
+
+.back {
+  z-index: -1;
+  left: 3vw;
+  border-radius: 0 2% 2% 0;
+  /* width: 20vw; */
+  height: 28vw;
+  background-color: #1f163c;
+  box-shadow: 0.52vw 0.52vw 0.52vw 0px rgba(121, 121, 121, 0.2);
+  animation: openBook 2s forwards;
+}
+
+.flipBasePage {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  border-radius: 0 2% 2% 0;
+  top: 0.7vw;
+}
+
+.flipBasePageOpen {
+  animation: openBasePage 3s forwards;
+}
+
+.basePage {
+  transform-origin: 0% 50%;
+  animation: flipBook 3s forwards;
+  left: 1.5vw;
+  width: calc(20vw * 0.9);
+  height: calc(28vw * 0.9);
+  background-color: white;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.basepageDeg {
+  animation: flipBookPage 3s 0.1s forwards;
+}
+
+.basePage0 {
+  background-color: #f7f7f7;
+  left: 1.2vw;
+  top: 0.05vw;
+  width: calc(20vw * 0.9 + 0.2vw);
+}
+
+.basePage0Light {
+  left: 1.8vw;
+}
+
+.basePage1 {
+  background-color: #eee;
+  left: 1vw;
+  top: 0.1vw;
+  width: calc(20vw * 0.9 + 0.4vw);
+}
+
+.basePage1Light {
+  left: 2.1vw;
+}
+
+.basePage2 {
+  background-color: #e6e6e6;
+  left: 0.75vw;
+  top: 0.15vw;
+  width: calc(20vw * 0.9 + 0.6vw);
+}
+
+.basePage2Light {
+  left: 2.4vw;
+}
+
+.basePage3 {
+  background-color: #ddd;
+  left: 0.5vw;
+  top: 0.2vw;
+  width: calc(20vw * 0.9 + 0.8vw);
+}
+
+.basePage3Light {
+  left: 2.7vw;
+}
+
+.basePage4 {
+  background-color: #d5d5d5;
+  left: 0.25vw;
+  top: 0.25vw;
+  width: calc(20vw * 0.9 + 1vw);
+}
+
+.aniNone {
+  animation: none;
 }
 
 .page0 {
-  width: 70%;
-  height: calc(28vw - 15%);
+  top: 0.7vw;
+  left: 1.5vw;
+  z-index: 9;
+  width: calc(20vw * 0.9);
+  height: calc(28vw * 0.9);
   background-color: white;
-  transform: translate3d(0.1vw, 1vw, -0.5vw);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes flipBook {
@@ -179,6 +307,33 @@
     transform: rotateY(0);
   }
   to {
-    transform: rotateY(-180deg);
+    transform: rotateY(-170deg);
+  }
+}
+
+@keyframes flipBookPage {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(-155deg);
+  }
+}
+
+@keyframes openBook {
+  from {
+    width: 17vw;
+  }
+  to {
+    width: 20vw;
+  }
+}
+
+@keyframes openBasePage {
+  from {
+    left: -1.5vw;
+  }
+  to {
+    left: 0vw;
   }
 }

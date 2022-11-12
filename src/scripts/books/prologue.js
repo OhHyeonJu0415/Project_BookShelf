@@ -24,7 +24,8 @@ const Prologue = () => {
 
     //프롤로그 책 올리기
     let element = document.getElementById("prologue");
-    element.style.cssText = "transform:scale(1.3)translateX(150%)";
+    element.style.cssText =
+      "transform:scale(1.3)translateX(150%)rotateX(20deg)";
     //나머지 책 내리기
     document.getElementById("sophomore").style.transform = "translateY(100vw)";
     document.getElementById("junior").style.transform = "translateY(100vw)";
@@ -33,7 +34,6 @@ const Prologue = () => {
   };
 
   return (
-    // <div className={styles.book}>
     <div
       id="prologue"
       className={[styles.book, stylesPro.container].join(" ")}
@@ -41,41 +41,105 @@ const Prologue = () => {
         checkState(event);
       }}
     >
-      {/* {book.book === "prologue" ? ( //책 덮기
-        <div
-          id="prologueArrow"
-          className={styles.arrow}
-          onClick={(e) => {
-            //이벤트 버블링/캡쳐링 막기
-            e.preventDefault();
-            e.stopPropagation();
+      {/* 책 */}
+      <div className={styles.contents}>
+        {/* 뒷표지 + 옆 부분 뒷면 */}
+        {book.book === "prologue" ? (
+          <>
+            {/* 뒷 표지 */}
+            <div className={styles.back} />
 
-            //리덕스 값 변경
-            dispatch(setBook("default"));
+            {/* 옆 부분 뒷면 */}
+            <div>
+              <div
+                className={[styles.sideCircle, styles.sideCircleUp].join(" ")}
+              />
+              <div className={styles.sideBack}>
+                <div
+                  className={[styles.sideCircle, styles.sideCircleDown].join(
+                    " "
+                  )}
+                />
+              </div>
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
 
-            //책 복구하기
-            //프롤로그 책 올리기
-            document
-              .getElementById("prologue")
-              .style.removeProperty("transform");
+        {/* 앞 표지 뒷면 + 왼쪽 베이스 페이지 */}
+        {book.book === "prologue" ? (
+          <>
+            {/* 앞 표지 뒷면 */}
+            <div className={styles.coverBack} />
 
-            //나머지 책 내리기
-            document
-              .getElementById("sophomore")
-              .style.removeProperty("transform");
-            document.getElementById("junior").style.removeProperty("transform");
-            document
-              .getElementById("foundation")
-              .style.removeProperty("transform");
-            document.getElementById("senior").style.removeProperty("transform");
-          }}
-        >
-          <Arrow />
-        </div>
-      ) : (
-        <></>
-      )} */}
-      <div className={styles.front}>
+            {/* 처음에 같이 넘어가는 페이지 */}
+            <div className={styles.flipBasePage}>
+              <div className={[styles.basePage, styles.basePage4].join(" ")} />
+              <div className={[styles.basePage, styles.basePage3].join(" ")} />
+              <div className={[styles.basePage, styles.basePage2].join(" ")} />
+              <div className={[styles.basePage, styles.basePage1].join(" ")} />
+              <div className={[styles.basePage, styles.basePage0].join(" ")} />
+              <div
+                className={[styles.basePage, styles.basepageDeg].join(" ")}
+              />
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
+
+        <div className={styles.page0}></div>
+        <div className={styles.page1}></div>
+        <div className={styles.page2}></div>
+        <div className={styles.page3}></div>
+
+        {/* 오른쪽 베이스 페이지 */}
+        {book.book === "prologue" ? (
+          <div
+            className={[styles.flipBasePage, styles.flipBasePageOpen].join(" ")}
+          >
+            <div
+              className={[
+                styles.basePage,
+                styles.basePage3,
+                styles.basePage3Light,
+                styles.aniNone,
+              ].join(" ")}
+            />
+            <div
+              className={[
+                styles.basePage,
+                styles.basePage2,
+                styles.basePage2Light,
+                styles.aniNone,
+              ].join(" ")}
+            />
+            <div
+              className={[
+                styles.basePage,
+                styles.basePage1,
+                styles.basePage1Light,
+                styles.aniNone,
+              ].join(" ")}
+            />
+            <div
+              className={[
+                styles.basePage,
+                styles.basePage0,
+                styles.basePage0Light,
+                styles.aniNone,
+              ].join(" ")}
+            />
+            {/* <div className={[styles.basePage, styles.basePage2].join(" ")} /> */}
+            {/* <div className={[styles.basePage, styles.basePage3].join(" ")} /> */}
+            {/* <div className={[styles.basePage, styles.basePage4].join(" ")} /> */}
+          </div>
+        ) : (
+          <></>
+        )}
+
+        {/* 표지 */}
         <div
           className={[
             styles.cover,
@@ -85,30 +149,16 @@ const Prologue = () => {
           <span>Prologue</span>
           <span>2018</span>
         </div>
-        {book.book === "prologue" ? (
-          <div className={styles.coverBack} />
-        ) : (
-          <></>
-        )}
-        <div className={styles.page0}></div>
-        <div className={styles.page1}></div>
-        <div className={styles.page2}></div>
-        <div className={styles.page3}></div>
       </div>
+
+      {/* 옆 부분 */}
       <div className={styles.leftSide}>
-        {/* <h2> */}
         <div>
           <span>Prologue</span>
           <span>오현주 지음</span>
         </div>
-        {/* </h2> */}
       </div>
-      {/* 뒷 표지 */}
-      {/* <div className={styles.back}>
-        <div className={[styles.cover].join(" ")}></div>
-      </div> */}
     </div>
-    // </div>
   );
 };
 
