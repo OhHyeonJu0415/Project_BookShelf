@@ -15,8 +15,8 @@ const App = () => {
 
   return (
     <div className={styles.container}>
-      {console.log(book)}
-      {/* {book.book !== "default" ? ( //책 덮기
+      {/* {console.log(book)}
+      {book.book !== "default" ? ( //책 덮기
         <div
           id="prologueArrow"
           className={styles.arrow}

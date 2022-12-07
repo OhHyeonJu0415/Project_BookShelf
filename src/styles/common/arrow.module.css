@@ -4,7 +4,7 @@
   align-items: center;
   font-size: 1rem;
   color: #251b46;
-  width: 5.5vw;
+  width: 10vw;
   cursor: pointer;
 }
 
@@ -19,4 +19,8 @@
   border-top-right-radius: 15%;
   border-bottom-right-radius: 25%;
   transform: rotate(225deg);
+}
+
+.right {
+  transform: rotate(45deg);
 }

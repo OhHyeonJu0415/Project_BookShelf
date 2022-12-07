@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import stylesPro from "../../styles/books/prologue.module.css";
 import styles from "../../styles/books/bookShelf.module.css";
 import Arrow from "../common/arrow";
+import ArrowRight from "../common/arrowRight";
 import { setBook } from "../../store/modules/book";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -18,16 +19,19 @@ import { useDispatch, useSelector } from "react-redux";
 const Prologue = () => {
   const book = useSelector((state) => state.book);
   const [closeBook, setCloseBook] = useState("prologue");
+  const [page, setPage] = useState(0);
+  const [page2, setPage2] = useState(0);
+  const [page4, setPage4] = useState(0);
+  const [page6, setPage6] = useState(0);
   const dispatch = useDispatch();
-  // let checkCloseBook = "default";
 
   const cloBook = () => {
-    // console.log(closeBook);
     setCloseBook("default");
 
-    //테스트 : 10초 뒤 디폴트로 변경
+    //3초 뒤 디폴트로 변경
     setTimeout(function () {
       dispatch(setBook("default"));
+      setPage(0);
       document.getElementById("prologue").style.removeProperty("transform");
 
       // 나머지 책 내리기 속성 삭제
@@ -36,9 +40,6 @@ const Prologue = () => {
       document.getElementById("foundation").style.removeProperty("transform");
       document.getElementById("senior").style.removeProperty("transform");
     }, 3000);
-
-    // dispatch(setBook("default"));
-    // console.log(book);
   };
 
   const checkState = () => {
@@ -60,19 +61,30 @@ const Prologue = () => {
 
   return (
     <>
+      {/* 왼쪽 화살표 */}
       {book.book !== "default" ? (
-        <div
-          className={styles.arrow}
-          onClick={() => {
-            cloBook();
-          }}
-        >
-          <Arrow />
+        <div className={styles.arrow}>
+          {page === 0 ? (
+            <div
+              onClick={() => {
+                cloBook();
+              }}
+            >
+              <Arrow props={"책 덮기"} />
+            </div>
+          ) : (
+            <div
+              onClick={() => {
+                setPage(page - 2);
+              }}
+            >
+              <Arrow props={"이전 페이지"} />
+            </div>
+          )}
         </div>
       ) : (
         ""
       )}
-
       <div
         id="prologue"
         className={[styles.book, stylesPro.container].join(" ")}
@@ -82,22 +94,22 @@ const Prologue = () => {
       >
         {/* 책 */}
         <div className={styles.contents}>
-          <div
+          {/* <div
             className={[
               styles.back,
               closeBook === "default" ? styles.closeCoverBack : "",
             ].join(" ")}
-          />
+          /> */}
           {/* 뒷표지 + 옆 부분 뒷면 */}
           {book.book === "prologue" ? (
             <>
               {/* 뒷 표지 */}
-              {/* <div
+              <div
                 className={[
                   styles.back,
                   closeBook === "default" ? styles.closeCoverBack : "",
                 ].join(" ")}
-              /> */}
+              />
 
               {/* 옆 부분 뒷면 */}
               <div
@@ -140,6 +152,7 @@ const Prologue = () => {
                     closeBook === "default" ? styles.closeCover : "",
                   ].join(" ")}
                 />
+
                 <div
                   className={[
                     styles.basePage,
@@ -174,6 +187,14 @@ const Prologue = () => {
                     closeBook === "default" ? styles.closePageLeft : "",
                   ].join(" ")}
                 />
+                <div
+                  className={[
+                    styles.basePage,
+                    closeBook === "default" ? styles.closePageLeft : "",
+                  ].join(" ")}
+                >
+                  <span className={styles.test}>0</span>
+                </div>
               </div>
             </>
           ) : (
@@ -233,17 +254,78 @@ const Prologue = () => {
           <div
             className={[
               styles.pages,
-              // closeBook === "default" ? styles.mainPage : "",
+              closeBook === "default" ? styles.mainPage : "",
             ].join(" ")}
           >
-            <div className={styles.page8}></div>
-            <div className={styles.page7}></div>
-            <div className={styles.page6}></div>
-            <div className={styles.page5}></div>
-            <div className={styles.page4}></div>
-            <div className={styles.page3}></div>
-            <div className={styles.page2}></div>
-            <div className={styles.page1}></div>
+            <div className={styles.page7}>
+              <span className={styles.test}>7</span>
+            </div>
+            <div
+              className={
+                page6
+                  ? [styles.page6Next, page > 6 ? styles.backHidden : ""].join(
+                      " "
+                    )
+                  : ""
+              }
+            >
+              <div className={styles.pageRotate}>
+                <span className={styles.test}>6</span>
+              </div>
+            </div>
+            <div className={page6 ? styles.page5Next : ""}>
+              <span className={styles.test}>5</span>
+            </div>
+            <div
+              className={
+                page4
+                  ? [
+                      styles.page4Next,
+                      page > 4 ? styles.backHidden_1 : "",
+                    ].join(" ")
+                  : ""
+              }
+              // className={
+              //   page == 4
+              //     ? pageTurn == "after"
+              //       ? styles.page4Next
+              //       : styles.page4Before
+              //     : ""
+              // }
+            >
+              <div className={styles.pageRotate}>
+                <span className={styles.test}>4</span>
+              </div>
+            </div>
+            <div
+              className={page4 ? styles.page3Next : ""}
+              // className={
+              //   page == 4
+              //     ? pageTurn == "after"
+              //       ? styles.page3Next
+              //       : styles.page3Before
+              //     : ""
+              // }
+            >
+              <span className={styles.test}>3</span>
+            </div>
+            <div
+              className={
+                page2
+                  ? [
+                      styles.page2Next,
+                      page > 2 ? styles.backHidden_2 : "",
+                    ].join(" ")
+                  : ""
+              }
+            >
+              <div className={styles.pageRotate}>
+                <span className={styles.test}>2</span>
+              </div>
+            </div>
+            <div className={page2 ? styles.page1Next : ""}>
+              <span className={styles.test}>1</span>
+            </div>
           </div>
 
           {/* 표지 */}
@@ -267,6 +349,39 @@ const Prologue = () => {
           </div>
         </div>
       </div>
+      {/* 오른쪽 화살표 */}
+      {book.book !== "default" ? (
+        <div className={styles.arrowLight}>
+          {page === 6 ? (
+            <div
+              onClick={() => {
+                cloBook();
+              }}
+            >
+              <ArrowRight props={"책 덮기"} />
+            </div>
+          ) : (
+            <div
+              onClick={() => {
+                setPage(page + 2);
+                page + 2 === 6 ? (
+                  setPage6(1)
+                ) : page + 2 === 4 ? (
+                  setPage4(1)
+                ) : page + 2 === 2 ? (
+                  setPage2(1)
+                ) : (
+                  <></>
+                );
+              }}
+            >
+              <ArrowRight props={"다음 페이지"} />
+            </div>
+          )}
+        </div>
+      ) : (
+        ""
+      )}
     </>
   );
 };

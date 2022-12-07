@@ -4,8 +4,8 @@ import styles from "../../styles/common/arrow.module.css";
 function arrow(props) {
   return (
     <div className={styles.container}>
-      <hr className={styles.arrow} />
       <span>{props.props}</span>
+      <hr className={[styles.arrow, styles.right].join(" ")} />
     </div>
   );
 }

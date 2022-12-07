@@ -30,7 +30,7 @@ const Junior = () => {
         checkState(event);
       }}
     >
-      <div className={styles.front}>
+      <div className={styles.contents}>
         <div className={[styles.cover, stylesJunior.cover].join(" ")}>
           {/* <div className="coverBox"> */}
           <span>Junior</span>

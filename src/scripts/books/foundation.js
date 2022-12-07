@@ -29,7 +29,7 @@ const Foundation = () => {
         checkState(event);
       }}
     >
-      <div className={styles.front}>
+      <div className={styles.contents}>
         <div className={[styles.cover, stylesFound.cover].join(" ")}>
           {/* <div className="coverBox"> */}
           <span>Foundation</span>
