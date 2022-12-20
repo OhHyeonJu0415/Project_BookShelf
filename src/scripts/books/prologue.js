@@ -23,6 +23,7 @@ const Prologue = () => {
   const [page2, setPage2] = useState(0);
   const [page4, setPage4] = useState(0);
   const [page6, setPage6] = useState(0);
+  const [ending, setEnding] = useState(0);
   const dispatch = useDispatch();
 
   const cloBook = () => {
@@ -32,6 +33,7 @@ const Prologue = () => {
     setTimeout(function () {
       dispatch(setBook("default"));
       setPage(0);
+      setEnding(0);
       document.getElementById("prologue").style.removeProperty("transform");
 
       // 나머지 책 내리기 속성 삭제
@@ -262,7 +264,13 @@ const Prologue = () => {
             </div>
             <div
               className={
-                page6 ? (page < 6 ? styles.pageBefore : styles.page6Next) : ""
+                ending
+                  ? styles.ending6
+                  : page6
+                  ? page < 6
+                    ? styles.pageBefore
+                    : styles.page6Next
+                  : ""
               }
             >
               <div className={styles.pageRotate}>
@@ -271,7 +279,9 @@ const Prologue = () => {
             </div>
             <div
               className={
-                page6
+                ending
+                  ? [styles.ending6, styles.page5Next].join(" ")
+                  : page6
                   ? page < 6
                     ? [styles.page5Next, styles.pageBefore].join(" ")
                     : styles.page5Next
@@ -282,7 +292,9 @@ const Prologue = () => {
             </div>
             <div
               className={
-                page4
+                ending
+                  ? styles.ending4
+                  : page4
                   ? page < 4
                     ? styles.pageBefore
                     : [styles.page4Next, styles.backHidden_1].join(" ")
@@ -295,7 +307,9 @@ const Prologue = () => {
             </div>
             <div
               className={
-                page4
+                ending
+                  ? [styles.ending4, styles.page3Next].join(" ")
+                  : page4
                   ? page < 4
                     ? [styles.page3Next, styles.pageBefore].join(" ")
                     : styles.page3Next
@@ -306,7 +320,9 @@ const Prologue = () => {
             </div>
             <div
               className={
-                page2
+                ending
+                  ? styles.ending2
+                  : page2
                   ? page < 2
                     ? styles.pageBefore
                     : [styles.page2Next, styles.backHidden_2].join(" ")
@@ -319,9 +335,11 @@ const Prologue = () => {
             </div>
             <div
               className={
-                page2
+                ending
+                  ? [styles.ending2, styles.page1Next].join(" ")
+                  : page2
                   ? page < 2
-                    ? [styles.pageBefore, styles.pageOddNext].join(" ")
+                    ? [styles.pageBefore, styles.page1Next].join(" ")
                     : styles.page1Next
                   : ""
               }
@@ -358,6 +376,7 @@ const Prologue = () => {
             <div
               onClick={() => {
                 cloBook();
+                setEnding(1);
               }}
             >
               <ArrowRight props={"책 덮기"} />
