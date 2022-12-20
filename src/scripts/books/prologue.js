@@ -183,20 +183,24 @@ const Prologue = () => {
                     closeBook === "default" ? styles.closeCover : "",
                   ].join(" ")}
                 />
-                <div
-                  className={[
-                    styles.basePage,
-                    closeBook === "default" ? styles.closePageLeft : "",
-                  ].join(" ")}
-                />
+                {/* 0번째 페이지 */}
                 <div
                   className={[
                     styles.basePage,
                     closeBook === "default" ? styles.closePageLeft : "",
                   ].join(" ")}
                 >
-                  <span className={styles.test}>0</span>
+                  <div className={styles.pageRotate}>
+                    <span className={styles.test}>0</span>
+                  </div>
                 </div>
+                <div
+                  className={[
+                    styles.basePage,
+                    styles.page1Next,
+                    closeBook === "default" ? styles.closePageLeft : "",
+                  ].join(" ")}
+                ></div>
               </div>
             </>
           ) : (
