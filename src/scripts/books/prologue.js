@@ -26,8 +26,13 @@ const Prologue = () => {
   const [ending, setEnding] = useState(0);
   const dispatch = useDispatch();
 
+  // 책 덮기
   const cloBook = () => {
     setCloseBook("default");
+
+    //화살표 없애기
+    document.getElementById("arrow").style.display = "none";
+    document.getElementById("arrowLight").style.display = "none";
 
     //3초 뒤 디폴트로 변경
     setTimeout(function () {
@@ -44,6 +49,7 @@ const Prologue = () => {
     }, 3000);
   };
 
+  // 프롤로그 책 선택
   const checkState = () => {
     //redux 값 변경
     dispatch(setBook("prologue"));
@@ -59,34 +65,38 @@ const Prologue = () => {
     document.getElementById("junior").style.transform = "translateY(100vw)";
     document.getElementById("foundation").style.transform = "translateY(100vw)";
     document.getElementById("senior").style.transform = "translateY(100vw)";
+
+    //3초 뒤 화살표 나타내기
+    setTimeout(function () {
+      document.getElementById("arrow").style.display = "flex";
+      document.getElementById("arrowLight").style.display = "flex";
+    }, 3000);
   };
 
   return (
     <>
       {/* 왼쪽 화살표 */}
-      {book.book !== "default" ? (
-        <div className={styles.arrow}>
-          {page === 0 ? (
-            <div
-              onClick={() => {
-                cloBook();
-              }}
-            >
-              <Arrow props={"책 덮기"} />
-            </div>
-          ) : (
-            <div
-              onClick={() => {
-                setPage(page - 2);
-              }}
-            >
-              <Arrow props={"이전 페이지"} />
-            </div>
-          )}
-        </div>
-      ) : (
-        ""
-      )}
+      <div className={styles.arrow} id="arrow">
+        {page === 0 ? (
+          <div
+            onClick={() => {
+              cloBook();
+            }}
+          >
+            <Arrow props={"책 덮기"} />
+          </div>
+        ) : (
+          <div
+            onClick={() => {
+              setPage(page - 2);
+            }}
+          >
+            <Arrow props={"이전 페이지"} />
+          </div>
+        )}
+      </div>
+
+      {/* 책 */}
       <div
         id="prologue"
         className={[styles.book, stylesPro.container].join(" ")}
@@ -96,12 +106,6 @@ const Prologue = () => {
       >
         {/* 책 */}
         <div className={styles.contents}>
-          {/* <div
-            className={[
-              styles.back,
-              closeBook === "default" ? styles.closeCoverBack : "",
-            ].join(" ")}
-          /> */}
           {/* 뒷표지 + 옆 부분 뒷면 */}
           {book.book === "prologue" ? (
             <>
@@ -134,7 +138,6 @@ const Prologue = () => {
           )}
 
           {/* 앞 표지 뒷면 + 왼쪽 베이스 페이지 */}
-          {/* {closeBook === "prologue" ? ( */}
           {book.book === "prologue" ? (
             <>
               {/* 앞 표지 뒷면 */}
@@ -373,40 +376,37 @@ const Prologue = () => {
           </div>
         </div>
       </div>
+
       {/* 오른쪽 화살표 */}
-      {book.book !== "default" ? (
-        <div className={styles.arrowLight}>
-          {page === 6 ? (
-            <div
-              onClick={() => {
-                cloBook();
-                setEnding(1);
-              }}
-            >
-              <ArrowRight props={"책 덮기"} />
-            </div>
-          ) : (
-            <div
-              onClick={() => {
-                setPage(page + 2);
-                page + 2 === 6 ? (
-                  setPage6(1)
-                ) : page + 2 === 4 ? (
-                  setPage4(1)
-                ) : page + 2 === 2 ? (
-                  setPage2(1)
-                ) : (
-                  <></>
-                );
-              }}
-            >
-              <ArrowRight props={"다음 페이지"} />
-            </div>
-          )}
-        </div>
-      ) : (
-        ""
-      )}
+      <div className={styles.arrowLight} id="arrowLight">
+        {page === 6 ? (
+          <div
+            onClick={() => {
+              cloBook();
+              setEnding(1);
+            }}
+          >
+            <ArrowRight props={"책 덮기"} />
+          </div>
+        ) : (
+          <div
+            onClick={() => {
+              setPage(page + 2);
+              page + 2 === 6 ? (
+                setPage6(1)
+              ) : page + 2 === 4 ? (
+                setPage4(1)
+              ) : page + 2 === 2 ? (
+                setPage2(1)
+              ) : (
+                <></>
+              );
+            }}
+          >
+            <ArrowRight props={"다음 페이지"} />
+          </div>
+        )}
+      </div>
     </>
   );
 };

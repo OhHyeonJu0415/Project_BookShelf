@@ -7,6 +7,7 @@
   z-index: 10000;
   margin-top: -62%;
   margin-left: -120%;
+  display: none;
 }
 
 .arrowLight {
@@ -14,6 +15,7 @@
   z-index: 10000;
   margin-top: -62%;
   margin-left: 130%;
+  display: none;
 }
 
 .book {
