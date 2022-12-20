@@ -262,60 +262,54 @@ const Prologue = () => {
             </div>
             <div
               className={
-                page6
-                  ? [styles.page6Next, page > 6 ? styles.backHidden : ""].join(
-                      " "
-                    )
-                  : ""
+                page6 ? (page < 6 ? styles.pageBefore : styles.page6Next) : ""
               }
             >
               <div className={styles.pageRotate}>
                 <span className={styles.test}>6</span>
               </div>
             </div>
-            <div className={page6 ? styles.page5Next : ""}>
+            <div
+              className={
+                page6
+                  ? page < 6
+                    ? [styles.page5Next, styles.pageBefore].join(" ")
+                    : styles.page5Next
+                  : ""
+              }
+            >
               <span className={styles.test}>5</span>
             </div>
             <div
               className={
                 page4
-                  ? [
-                      styles.page4Next,
-                      page > 4 ? styles.backHidden_1 : "",
-                    ].join(" ")
+                  ? page < 4
+                    ? styles.pageBefore
+                    : [styles.page4Next, styles.backHidden_1].join(" ")
                   : ""
               }
-              // className={
-              //   page == 4
-              //     ? pageTurn == "after"
-              //       ? styles.page4Next
-              //       : styles.page4Before
-              //     : ""
-              // }
             >
               <div className={styles.pageRotate}>
                 <span className={styles.test}>4</span>
               </div>
             </div>
             <div
-              className={page4 ? styles.page3Next : ""}
-              // className={
-              //   page == 4
-              //     ? pageTurn == "after"
-              //       ? styles.page3Next
-              //       : styles.page3Before
-              //     : ""
-              // }
+              className={
+                page4
+                  ? page < 4
+                    ? [styles.page3Next, styles.pageBefore].join(" ")
+                    : styles.page3Next
+                  : ""
+              }
             >
               <span className={styles.test}>3</span>
             </div>
             <div
               className={
                 page2
-                  ? [
-                      styles.page2Next,
-                      page > 2 ? styles.backHidden_2 : "",
-                    ].join(" ")
+                  ? page < 2
+                    ? styles.pageBefore
+                    : [styles.page2Next, styles.backHidden_2].join(" ")
                   : ""
               }
             >
@@ -323,7 +317,15 @@ const Prologue = () => {
                 <span className={styles.test}>2</span>
               </div>
             </div>
-            <div className={page2 ? styles.page1Next : ""}>
+            <div
+              className={
+                page2
+                  ? page < 2
+                    ? [styles.pageBefore, styles.pageOddNext].join(" ")
+                    : styles.page1Next
+                  : ""
+              }
+            >
               <span className={styles.test}>1</span>
             </div>
           </div>

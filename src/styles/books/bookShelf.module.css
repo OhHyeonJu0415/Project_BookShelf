@@ -341,7 +341,8 @@
 .page5Next,
 .page6Next {
   transform-origin: 0% 50%;
-  animation: flipBookNext 1.5s 0.6s forwards;
+  transition: transform 1.5s ease-in-out;
+  transform: rotateY(-160deg);
 }
 
 .page1Next,
@@ -350,10 +351,10 @@
   backface-visibility: hidden;
 }
 
-.page1Before,
-.page2Before {
+.pageBefore {
   transform-origin: 0% 50%;
-  animation: flipBookBefore 1.5s 0.6s forwards;
+  transform: rotateY(0deg);
+  transition: all 1.5s ease-in-out;
 }
 
 .pageRotate {
@@ -530,25 +531,5 @@
   }
   to {
     transform: translateY(1.5vw);
-  }
-}
-
-@keyframes flipBookNext {
-  /* 다음페이지 */
-  from {
-    transform: rotateY(0);
-  }
-  to {
-    transform: rotateY(-160deg);
-  }
-}
-
-@keyframes flipBookBefore {
-  /* 이전페이지  */
-  from {
-    transform: rotateY(-160deg);
-  }
-  to {
-    transform: rotateY(0);
   }
 }
