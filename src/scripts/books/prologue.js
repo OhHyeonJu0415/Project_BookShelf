@@ -5,6 +5,8 @@ import Arrow from "../common/arrow";
 import ArrowRight from "../common/arrowRight";
 import { setBook } from "../../store/modules/book";
 import { useDispatch, useSelector } from "react-redux";
+import { MdMailOutline } from "react-icons/md";
+import { GoMarkGithub } from "react-icons/go";
 
 // window.onload = function () {
 //   document
@@ -17,14 +19,21 @@ import { useDispatch, useSelector } from "react-redux";
 // };
 
 const Prologue = () => {
+  //전역상태 관리
   const book = useSelector((state) => state.book);
+  const dispatch = useDispatch();
+
+  //첫 페이지에서 책 닫기
   const [closeBook, setCloseBook] = useState("prologue");
-  const [page, setPage] = useState(0);
+
+  //페이지 위치
+  const [page, setPage] = useState(-1);
   const [page2, setPage2] = useState(0);
   const [page4, setPage4] = useState(0);
   const [page6, setPage6] = useState(0);
+
+  //마지막 페이지에서 책 닫기
   const [ending, setEnding] = useState(0);
-  const dispatch = useDispatch();
 
   // 책 덮기
   const cloBook = () => {
@@ -37,7 +46,10 @@ const Prologue = () => {
     //3초 뒤 디폴트로 변경
     setTimeout(function () {
       dispatch(setBook("default"));
-      setPage(0);
+      setPage(-1);
+      setPage2(0);
+      setPage4(0);
+      setPage6(0);
       setEnding(0);
       document.getElementById("prologue").style.removeProperty("transform");
 
@@ -54,12 +66,13 @@ const Prologue = () => {
     //redux 값 변경
     dispatch(setBook("prologue"));
     setCloseBook("prologue");
+    setPage(0);
     // checkCloseBook = "prologue";
 
     //프롤로그 책 올리기
     let element = document.getElementById("prologue");
     element.style.cssText =
-      "transform:scale(1.3)translateX(150%)rotateX(20deg)";
+      "transform:scale(1.5)translateX(125%)rotateX(20deg)";
     //나머지 책 내리기
     document.getElementById("sophomore").style.transform = "translateY(100vw)";
     document.getElementById("junior").style.transform = "translateY(100vw)";
@@ -73,8 +86,27 @@ const Prologue = () => {
     }, 3000);
   };
 
+  if (book.book === "prologue") {
+    if (page === 0) {
+      //0,1페이지
+      // let page1 = document.querySelector(".mainTitle");
+      // page1.style.animation = "page1MainTitle 2s infinite";
+      // let page1 = document.getElementById("page1Title");
+      // page1.style.animation = "mainTitle 2s infinite";
+      // page1.style.backgroundPosition = "0% 100%";
+      // console.log(page1.style.animation);
+    } else if (page === 2) {
+      //2,3페이지
+    } else if (page === 4) {
+      //4,5페이지
+    } else {
+      //6,7페이지
+    }
+  }
+
   return (
     <>
+      {console.log(page)}
       {/* 왼쪽 화살표 */}
       <div className={styles.arrow} id="arrow">
         {page === 0 ? (
@@ -194,7 +226,34 @@ const Prologue = () => {
                   ].join(" ")}
                 >
                   <div className={styles.pageRotate}>
-                    <span className={styles.test}>0</span>
+                    <div className={stylesPro.page0}>
+                      <img
+                        src={require("../../images/18profile.jpg")}
+                        alt="profile"
+                      ></img>
+                      <p>
+                        <span>오현주</span>
+                        <span>1999.04.15</span>
+                        <span>동아대학교 컴퓨터공학과</span>
+                      </p>
+
+                      <p>
+                        <a href="mailto:guswn2209@gmail.com">
+                          <MdMailOutline size="14" />
+                          <span>guswn2209@gmail.com</span>
+                        </a>
+                      </p>
+                      <p>
+                        <a
+                          href="https://github.com/OhHyeonJu0415"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <GoMarkGithub size="12" />
+                          <span>OhHyeonJu</span>
+                        </a>
+                      </p>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -351,7 +410,21 @@ const Prologue = () => {
                   : ""
               }
             >
-              <span className={styles.test}>1</span>
+              <div className={stylesPro.page1}>
+                <div className={stylesPro.bookTitle}>
+                  <i>Prologue _ 2018</i>
+                </div>
+                <p>나는</p>
+                <p
+                  className={[
+                    page === 0 && stylesPro.underLineBasic,
+                    page === 2 && stylesPro.underLineHold,
+                  ].join(" ")}
+                >
+                  실패가
+                </p>
+                <p>습관이었다</p>
+              </div>
             </div>
           </div>
 
