@@ -2,12 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
-  overflow-x: hidden;
-  overflow-y: hidden;
-  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .container {
@@ -59,7 +57,10 @@ body {
 }
 
 body {
-  font-family: "dream3";
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+  font-family: "DotumMedium";
   width: 100vw;
   height: 100vh;
   background-repeat: no-repeat;
