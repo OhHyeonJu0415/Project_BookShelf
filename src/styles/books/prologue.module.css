@@ -2,48 +2,70 @@
   left: calc(0% - 1vw);
 }
 
+/*********** 0페이지 **********/
+.page0 {
+  width: 100%;
+  height: 100%;
+  padding: 30% 20% 0 15%;
+  /* font-family: "DotumLight"; */
+}
+
+.page0 > img {
+  width: 7vw;
+  height: 7vw;
+  border-radius: 50%;
+  margin-bottom: 10%;
+  border: 2px #1f163c solid;
+}
+
+.page0 > p {
+  font-size: 12px;
+}
+
+.page0 > p > span {
+  display: block;
+  margin-bottom: 2%;
+}
+
 /*********** 1페이지 **********/
-.page {
+.page1 {
   width: 100%;
   height: 100%;
   padding: 10%;
-  font-family: "DotumMedium";
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-family: "Tenada";
 }
 
-.page p:nth-child(1) {
-  font-size: 1.8vw;
-  font-family: "DotumBold";
+.bookTitle {
+  position: absolute;
+  top: 5%;
+  font-family: "worldBold";
+  font-size: 0.9rem;
+  color: rgb(62, 62, 62);
 }
 
-.page p:nth-child(2) {
-  margin: 5% auto 12% auto;
-  font-size: 4vw;
+.page1 p:nth-child(2) {
+  margin-top: 10%;
+  font-size: 1.5vw;
+}
+
+.page1 p:nth-child(3) {
+  margin: 5% auto 10% auto;
+  font-size: 3.5vw;
   position: relative;
   background-repeat: no-repeat;
 }
 
-.page p:nth-child(2)::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 10%;
-  background-image: linear-gradient(rgb(255, 248, 234), rgb(255, 248, 234));
-  background-size: 100% 10%;
-  background-position: 100% 0%;
-  animation: firstMainTitle 0.4s 3.5s forwards;
-}
-
-.page p:nth-child(3) {
+.page1 p:nth-child(4) {
   text-align: right;
-  font-size: 2vw;
+  font-size: 1.8vw;
 }
 
 .mainTitleBasic {
   /* 책 처음 펼칠때 */
-  animation: mainTitle 2s 3s forwards;
+  animation: mainTitle 2s 2s forwards;
 }
 
 .mainTitle {
@@ -83,14 +105,5 @@
     );
     background-size: 100% 100%;
     background-position: 0% 100%;
-  }
-}
-
-@keyframes firstMainTitle {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
   }
 }
