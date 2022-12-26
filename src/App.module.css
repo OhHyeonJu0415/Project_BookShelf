@@ -29,6 +29,7 @@
 }
 
 /* kopubWorld */
+/* 책 표지 */
 @font-face {
   font-family: "worldBold";
   src: url("./styles/font/KoPubWorld\ Batang_Pro\ Bold.otf");
@@ -42,25 +43,37 @@
   src: url("./styles/font/KoPubWorld\ Batang_Pro\ Light.otf");
 }
 
-/* kopubDotum */
+/* 책 1페이지 제목1 */
 @font-face {
-  font-family: "DotumBold";
-  src: url("./styles/font/KoPubWorld\ Dotum_Pro\ Bold.otf");
+  font-family: "Tenada";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
+/* 화살표 */
 @font-face {
-  font-family: "DotumMedium";
-  src: url("./styles/font/KoPubWorld\ Dotum_Pro\ Medium.otf");
+  font-family: "Happiness-Sans-Title";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
+
+/* 기본 글씨체 */
 @font-face {
-  font-family: "DotumLight";
-  src: url("./styles/font/KoPubWorld\ Dotum_Pro\ Light.otf");
+  font-family: "SUIT-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
   overflow-x: hidden;
   overflow-y: hidden;
   position: relative;
-  font-family: "DotumMedium";
+  font-family: "SUIT-Regular";
   width: 100vw;
   height: 100vh;
   background-repeat: no-repeat;
