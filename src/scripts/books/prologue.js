@@ -5,8 +5,7 @@ import Arrow from "../common/arrow";
 import ArrowRight from "../common/arrowRight";
 import { setBook } from "../../store/modules/book";
 import { useDispatch, useSelector } from "react-redux";
-import { MdMailOutline } from "react-icons/md";
-import { GoMarkGithub } from "react-icons/go";
+import { GoMarkGithub, GoMail } from "react-icons/go";
 
 // window.onload = function () {
 //   document
@@ -106,7 +105,6 @@ const Prologue = () => {
 
   return (
     <>
-      {console.log(page)}
       {/* 왼쪽 화살표 */}
       <div className={styles.arrow} id="arrow">
         {page === 0 ? (
@@ -239,7 +237,7 @@ const Prologue = () => {
 
                       <p>
                         <a href="mailto:guswn2209@gmail.com">
-                          <MdMailOutline size="14" />
+                          <GoMail size="16" />
                           <span>guswn2209@gmail.com</span>
                         </a>
                       </p>
@@ -249,7 +247,7 @@ const Prologue = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <GoMarkGithub size="12" />
+                          <GoMarkGithub size="14" />
                           <span>OhHyeonJu</span>
                         </a>
                       </p>
@@ -325,9 +323,12 @@ const Prologue = () => {
               closeBook === "default" ? styles.mainPage : "",
             ].join(" ")}
           >
+            {/* 7페이지 */}
             <div className={styles.page7}>
               <span className={styles.test}>7</span>
             </div>
+
+            {/* 6페이지 */}
             <div
               className={
                 ending
@@ -343,6 +344,8 @@ const Prologue = () => {
                 <span className={styles.test}>6</span>
               </div>
             </div>
+
+            {/* 5페이지 */}
             <div
               className={
                 ending
@@ -356,6 +359,8 @@ const Prologue = () => {
             >
               <span className={styles.test}>5</span>
             </div>
+
+            {/* 4페이지 */}
             <div
               className={
                 ending
@@ -371,6 +376,8 @@ const Prologue = () => {
                 <span className={styles.test}>4</span>
               </div>
             </div>
+
+            {/* 3페이지 */}
             <div
               className={
                 ending
@@ -382,8 +389,13 @@ const Prologue = () => {
                   : ""
               }
             >
-              <span className={styles.test}>3</span>
+              <div className={stylesPro.page3}>
+                <div className={stylesPro.page3Contents}></div>
+                <div className={stylesPro.cup}></div>
+              </div>
             </div>
+
+            {/* 2페이지 */}
             <div
               className={
                 ending
@@ -396,9 +408,18 @@ const Prologue = () => {
               }
             >
               <div className={styles.pageRotate}>
-                <span className={styles.test}>2</span>
+                <div className={stylesPro.page2}>
+                  {/* 1. 페이지 너비를 2배로 한다
+                  2. 오른쪽 페이지에는 3페이지와 같은 내용을 넣는다
+                  3. 컵이 넘어지는 모션을 왼쪽 페이지까지 연결해서 넣는다.
+                  4. 오른쪽 페이지는 숨긴다.
+                  => 최종적으로 3페이지와 연결되는것처럼 보인다 */}
+                  <span className={styles.test}>2</span>
+                </div>
               </div>
             </div>
+
+            {/* 1페이지 */}
             <div
               className={
                 ending
