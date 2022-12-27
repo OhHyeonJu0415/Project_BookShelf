@@ -390,8 +390,38 @@ const Prologue = () => {
               }
             >
               <div className={stylesPro.page3}>
-                <div className={stylesPro.page3Contents}></div>
-                <div className={stylesPro.cup}></div>
+                <div className={stylesPro.page3Contents}>
+                  <span>
+                    난 이미 물을 쏟아 버렸는지도 모르고, 주워 담을 생각조차 못
+                    했다.
+                  </span>
+                </div>
+                <div
+                  className={[
+                    stylesPro.cupContainer,
+                    page === 2 && stylesPro.cupContainerAnimation,
+                  ].join(" ")}
+                >
+                  <div
+                    className={[
+                      stylesPro.cup,
+                      page === 2 && stylesPro.cupAnimation,
+                    ].join(" ")}
+                  >
+                    <div
+                      className={[
+                        stylesPro.water,
+                        page === 2 && stylesPro.waterAnimation,
+                      ].join(" ")}
+                    ></div>
+                    <div
+                      className={[
+                        stylesPro.water,
+                        page === 2 && stylesPro.waterAnimation2,
+                      ].join(" ")}
+                    ></div>
+                  </div>
+                </div>
               </div>
             </div>
 
