@@ -4,6 +4,7 @@
 
 /*********** 0페이지 **********/
 .page0 {
+  overflow: hidden;
   cursor: default;
   width: 100%;
   height: 100%;
@@ -46,6 +47,7 @@
 
 /*********** 1페이지 **********/
 .page1 {
+  overflow: hidden;
   width: 100%;
   height: 100%;
   padding: 10%;
@@ -131,26 +133,91 @@
 
 /*********** 2페이지 **********/
 .page2 {
-  z-index: 9999;
   width: 100%;
   height: 100%;
-  border: 1px rgb(19, 77, 139) solid;
-  padding: 10%;
+  overflow: hidden;
+}
+
+.blobContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.blobAnimation {
+  animation: blob 3s 6s infinite;
+}
+
+.blobContainer::before {
+  content: "";
+  position: absolute;
+  bottom: 5%;
+  right: -5%;
+  height: 40%;
+  width: 30%;
+  background-color: #528dd9;
+  clip-path: ellipse(25% 40% at 50% 50%);
+  transform: rotate(-45deg);
+}
+
+.blobContainer::after {
+  content: "";
+  position: absolute;
+  bottom: 5%;
+  right: -10%;
+  height: 40%;
+  width: 30%;
+  background-color: #fff;
+  clip-path: ellipse(25% 40% at 50% 50%);
+  transform: rotate(-32deg);
+}
+
+.blob {
+  z-index: 1;
+  position: absolute;
+  bottom: -3vw;
+  left: -6vw;
+}
+
+.page2Contents {
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+  font-family: "Happiness-Sans-Title";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.6rem;
+  color: rgb(193, 227, 255);
+}
+
+.page2Contents > p {
+  margin-bottom: 5%;
+}
+
+@keyframes blob {
+  from {
+    clip-path: polygon(100% 100%, 100% 100%, 100% 100%, 100% 100%);
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
 }
 
 /*********** 3페이지 **********/
 .page3 {
   width: 100%;
   height: 100%;
-  border: 1px saddlebrown solid;
   padding: 10%;
+  overflow: hidden;
 }
 
 .page3Contents {
   width: 100%;
   height: 40%;
   border: 1px rgb(19, 105, 139) solid;
-  overflow: hidden;
+  font-size: 1rem;
 }
 
 .cupContainer {
@@ -160,8 +227,8 @@
   height: 100%;
   margin-right: 0;
   margin-left: auto;
-  /* border: 1px solid salmon; */
   transform-origin: bottom left;
+  /* border: 1px solid salmon; */
 }
 
 .cupContainerAnimation {
@@ -174,9 +241,8 @@
   bottom: 0;
   width: 80%;
   height: 35%;
-  border: 2px solid black;
+  border: 2px solid rgb(156, 175, 205);
   border-radius: 15px 15px 32px 32px;
-
   overflow: hidden;
 }
 
@@ -186,7 +252,6 @@
 
 .water {
   position: absolute;
-  border-radius: 15px 15px 30px 30px;
   right: -50%;
   bottom: -50%;
   width: 200%;
@@ -206,6 +271,22 @@
 
 .waterAnimation2 {
   animation: water2 5s forwards linear;
+}
+
+.spil {
+  opacity: 0;
+  left: 0;
+  bottom: 1%;
+  width: 13%;
+  height: 16%;
+  background-color: #4384d9;
+  position: absolute;
+  /* clip-path: polygon(0 9%, 93% 50%, 100% 70%, 0 70%); */
+  /* animation: spilOver 1s 5s forwards ease-out; */
+}
+
+.spilAnimation {
+  animation: spilOver 1s 5s forwards ease-out;
 }
 
 @keyframes water {
@@ -292,5 +373,21 @@
 @keyframes fallDown {
   to {
     transform: rotate(-45deg);
+  }
+}
+
+@keyframes spilOver {
+  0% {
+    opacity: 0;
+    clip-path: polygon(93% 50%, 93% 50%, 100% 70%, 100% 70%);
+    /* clip-path: polygon(100% 43%, 100% 43%, 100% 85%, 100% 85%); */
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    clip-path: polygon(0 50%, 93% 50%, 100% 70%, 0 70%);
+    /* clip-path: polygon(0 44%, 100% 43%, 100% 85%, 0 70%); */
   }
 }

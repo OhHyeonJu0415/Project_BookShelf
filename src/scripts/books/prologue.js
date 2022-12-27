@@ -6,6 +6,7 @@ import ArrowRight from "../common/arrowRight";
 import { setBook } from "../../store/modules/book";
 import { useDispatch, useSelector } from "react-redux";
 import { GoMarkGithub, GoMail } from "react-icons/go";
+import { ReactComponent as Reservation } from "../../images/blob.svg";
 
 // window.onload = function () {
 //   document
@@ -390,24 +391,29 @@ const Prologue = () => {
               }
             >
               <div className={stylesPro.page3}>
+                {/* 글자 */}
                 <div className={stylesPro.page3Contents}>
                   <span>
                     난 이미 물을 쏟아 버렸는지도 모르고, 주워 담을 생각조차 못
                     했다.
                   </span>
                 </div>
+
+                {/* 컵 */}
                 <div
                   className={[
                     stylesPro.cupContainer,
                     page === 2 && stylesPro.cupContainerAnimation,
                   ].join(" ")}
                 >
+                  {/* 컵 모양 */}
                   <div
                     className={[
                       stylesPro.cup,
                       page === 2 && stylesPro.cupAnimation,
                     ].join(" ")}
                   >
+                    {/* 컵 안에 물 */}
                     <div
                       className={[
                         stylesPro.water,
@@ -422,6 +428,14 @@ const Prologue = () => {
                     ></div>
                   </div>
                 </div>
+
+                {/* 컵에서 흘러내린 물 */}
+                {/* <div
+                  className={[
+                    stylesPro.spil,
+                    page === 2 && stylesPro.spilAnimation,
+                  ].join(" ")}
+                ></div> */}
               </div>
             </div>
 
@@ -439,12 +453,21 @@ const Prologue = () => {
             >
               <div className={styles.pageRotate}>
                 <div className={stylesPro.page2}>
-                  {/* 1. 페이지 너비를 2배로 한다
-                  2. 오른쪽 페이지에는 3페이지와 같은 내용을 넣는다
-                  3. 컵이 넘어지는 모션을 왼쪽 페이지까지 연결해서 넣는다.
-                  4. 오른쪽 페이지는 숨긴다.
-                  => 최종적으로 3페이지와 연결되는것처럼 보인다 */}
-                  <span className={styles.test}>2</span>
+                  {/* 물 웅덩이 */}
+                  <div className={stylesPro.blobContainer}>
+                    <Reservation
+                      width="30vw"
+                      height="32vw"
+                      className={stylesPro.blob}
+                    />
+                  </div>
+
+                  {/* 글자 */}
+                  <div className={stylesPro.page2Contents}>
+                    <p>엎질러진 물은</p>
+                    <p>다시</p>
+                    <p>주워담을 수 없다</p>
+                  </div>
                 </div>
               </div>
             </div>
