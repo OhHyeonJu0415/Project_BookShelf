@@ -66,6 +66,10 @@
   opacity: 0.8;
 }
 
+.page1 > p {
+  transform: skew(-0.1deg);
+}
+
 .page1 p:nth-child(2) {
   margin-top: 10%;
   font-size: 1.5vw;
@@ -139,44 +143,22 @@
 }
 
 .blobContainer {
+  opacity: 0;
   position: relative;
   width: 100%;
   height: 100%;
+  transform-origin: 90% 70%;
 }
 
 .blobAnimation {
-  animation: blob 3s 6s infinite;
-}
-
-.blobContainer::before {
-  content: "";
-  position: absolute;
-  bottom: 5%;
-  right: -5%;
-  height: 40%;
-  width: 30%;
-  background-color: #528dd9;
-  clip-path: ellipse(25% 40% at 50% 50%);
-  transform: rotate(-45deg);
-}
-
-.blobContainer::after {
-  content: "";
-  position: absolute;
-  bottom: 5%;
-  right: -10%;
-  height: 40%;
-  width: 30%;
-  background-color: #fff;
-  clip-path: ellipse(25% 40% at 50% 50%);
-  transform: rotate(-32deg);
+  animation: blob 3s 3s forwards cubic-bezier(0.51, 0.01, 0, 1);
 }
 
 .blob {
   z-index: 1;
   position: absolute;
-  bottom: -3vw;
-  left: -6vw;
+  top: 15%;
+  left: 8%;
 }
 
 .page2Contents {
@@ -188,20 +170,53 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1.6rem;
-  color: rgb(193, 227, 255);
+  font-size: 1.4rem;
+  color: #fff;
 }
 
 .page2Contents > p {
+  text-shadow: 1px 0 0.3rem rgba(255, 255, 255, 0.4),
+    -1px 0 0.3rem rgba(255, 255, 255, 0.4);
   margin-bottom: 5%;
 }
 
+.page2Contents > p > span {
+  display: inline-block;
+}
+
 @keyframes blob {
-  from {
-    clip-path: polygon(100% 100%, 100% 100%, 100% 100%, 100% 100%);
+  0% {
+    opacity: 0;
+    transform: scale(0);
   }
-  to {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes waveText {
+  0%,
+  50%,
+  100% {
+    transform: translate(0, 0);
+  }
+  12.5%,
+  37.5% {
+    transform: translate(0, 5px);
+  }
+  25% {
+    transform: translate(0, 10px);
+  }
+  62.5%,
+  87.5% {
+    transform: translate(0, -5px);
+  }
+  75% {
+    transform: translate(0, -10px);
   }
 }
 
@@ -216,8 +231,18 @@
 .page3Contents {
   width: 100%;
   height: 40%;
-  border: 1px rgb(19, 105, 139) solid;
   font-size: 1rem;
+  padding: 10% 5% 0 5%;
+  line-height: 200%;
+  font-family: "Pretendard-Regular";
+}
+
+.page3Contents > p {
+  transform: skew(-0.1deg);
+}
+
+.page3Contents > p:first-letter {
+  font-size: 2.5rem;
 }
 
 .cupContainer {
@@ -225,24 +250,23 @@
   top: -40%;
   width: 50%;
   height: 100%;
-  margin-right: 0;
+  margin-right: 10%;
   margin-left: auto;
-  transform-origin: bottom left;
-  /* border: 1px solid salmon; */
+  transform-origin: bottom;
 }
 
 .cupContainerAnimation {
-  animation: fallDown 1s 4s forwards;
+  animation: fallDown 4s 2s forwards;
 }
 
 .cup {
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: 10%;
   width: 80%;
   height: 35%;
   border: 2px solid rgb(156, 175, 205);
-  border-radius: 15px 15px 32px 32px;
+  border-radius: 5px 5px 30px 30px;
   overflow: hidden;
 }
 
@@ -262,31 +286,15 @@
   background-color: black;
   filter: invert(100%);
   -webkit-filter: invert(100%);
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 .waterAnimation {
-  animation: water 5s forwards linear;
+  animation: water 4.5s forwards linear;
 }
 
 .waterAnimation2 {
-  animation: water2 5s forwards linear;
-}
-
-.spil {
-  opacity: 0;
-  left: 0;
-  bottom: 1%;
-  width: 13%;
-  height: 16%;
-  background-color: #4384d9;
-  position: absolute;
-  /* clip-path: polygon(0 9%, 93% 50%, 100% 70%, 0 70%); */
-  /* animation: spilOver 1s 5s forwards ease-out; */
-}
-
-.spilAnimation {
-  animation: spilOver 1s 5s forwards ease-out;
+  animation: water2 4.5s forwards linear;
 }
 
 @keyframes water {
@@ -294,50 +302,36 @@
     background-position: 0 60%;
     transform: rotate(0);
   }
-  25% {
-    transform: rotate(0);
-    background-position: 29.5% 55%;
-  }
-  50% {
-    transform: rotate(0);
-    background-position: 70% 35%;
-  }
   70% {
-    transform: rotate(45deg);
+    background-position: 80% 30%;
+    transform: rotate(5deg);
   }
   80% {
-    transform: rotate(65deg);
-    background-position: 100% 75%;
+    transform: rotate(60deg);
+    background-position: 100% 40%;
   }
   100% {
     background-position: 140% 60%;
-    transform: rotate(90deg) translateY(50px);
+    transform: rotate(90deg) translateY(80px);
   }
 }
 
 @keyframes water2 {
   0% {
-    background-position: 0 60%;
+    background-position: 0 40%;
     transform: rotate(0);
-  }
-  30% {
-    transform: rotate(0);
-    background-position: 29.5% 55%;
-  }
-  55% {
-    transform: rotate(0);
-    background-position: 70% 35%;
   }
   70% {
-    transform: rotate(45deg);
+    background-position: 85% 35%;
+    transform: rotate(5deg);
   }
   80% {
-    transform: rotate(65deg);
-    background-position: 100% 75%;
+    transform: rotate(60deg);
+    background-position: 100% 45%;
   }
   100% {
     background-position: 140% 60%;
-    transform: rotate(90deg) translateY(50px);
+    transform: rotate(90deg) translateY(80px);
   }
 }
 
@@ -346,48 +340,28 @@
   12%,
   24%,
   36% {
-    transform-origin: bottom;
+    transform-origin: bottom center;
     transform: rotate(0);
   }
   6%,
   30% {
-    transform-origin: bottom right;
     transform: rotate(5deg);
   }
   18%,
   42% {
-    transform-origin: bottom left;
     transform: rotate(-5deg);
   }
   60% {
-    transform-origin: bottom left;
-    transform: rotate(-30deg) translate(-10px, 10px);
+    transform: rotate(-30deg) translate(25%, 0);
   }
-  80%,
+  70%,
   100% {
-    transform-origin: bottom left;
-    transform: rotate(-45deg) translate(-10px, 10px);
+    transform: rotate(-45deg) translate(25%, 0);
   }
 }
 
 @keyframes fallDown {
   to {
     transform: rotate(-45deg);
-  }
-}
-
-@keyframes spilOver {
-  0% {
-    opacity: 0;
-    clip-path: polygon(93% 50%, 93% 50%, 100% 70%, 100% 70%);
-    /* clip-path: polygon(100% 43%, 100% 43%, 100% 85%, 100% 85%); */
-  }
-  10% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-    clip-path: polygon(0 50%, 93% 50%, 100% 70%, 0 70%);
-    /* clip-path: polygon(0 44%, 100% 43%, 100% 85%, 0 70%); */
   }
 }
