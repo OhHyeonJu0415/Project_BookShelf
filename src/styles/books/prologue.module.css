@@ -154,6 +154,11 @@
   animation: blob 3s 3s forwards cubic-bezier(0.51, 0.01, 0, 1);
 }
 
+.blobHold {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
 .blob {
   z-index: 1;
   position: absolute;
@@ -259,6 +264,10 @@
   animation: fallDown 4s 2s forwards;
 }
 
+.cupContainerHold {
+  transform: rotate(-45deg);
+}
+
 .cup {
   position: absolute;
   left: 0;
@@ -272,6 +281,10 @@
 
 .cupAnimation {
   animation: cupShake 6s forwards ease-out;
+}
+
+.cupHold {
+  transform: rotate(-45deg) translate(25%, 0);
 }
 
 .water {
@@ -295,6 +308,11 @@
 
 .waterAnimation2 {
   animation: water2 4.5s forwards linear;
+}
+
+.waterHold {
+  background-position: 140% 60%;
+  transform: rotate(90deg) translateY(80px);
 }
 
 @keyframes water {

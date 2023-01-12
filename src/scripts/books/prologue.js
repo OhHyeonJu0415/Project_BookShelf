@@ -404,6 +404,7 @@ const Prologue = () => {
                   className={[
                     stylesPro.cupContainer,
                     page === 2 && stylesPro.cupContainerAnimation,
+                    (page === 4 || page === 0) && stylesPro.cupContainerHold,
                   ].join(" ")}
                 >
                   {/* 컵 모양 */}
@@ -411,6 +412,7 @@ const Prologue = () => {
                     className={[
                       stylesPro.cup,
                       page === 2 && stylesPro.cupAnimation,
+                      (page === 4 || page === 0) && stylesPro.cupHold,
                     ].join(" ")}
                   >
                     {/* 컵 안에 물 */}
@@ -418,12 +420,14 @@ const Prologue = () => {
                       className={[
                         stylesPro.water,
                         page === 2 && stylesPro.waterAnimation,
+                        (page === 4 || page === 0) && stylesPro.waterHold,
                       ].join(" ")}
                     ></div>
                     <div
                       className={[
                         stylesPro.water,
                         page === 2 && stylesPro.waterAnimation2,
+                        (page === 4 || page === 0) && stylesPro.waterHold,
                       ].join(" ")}
                     ></div>
                   </div>
@@ -450,6 +454,7 @@ const Prologue = () => {
                     className={[
                       stylesPro.blobContainer,
                       page === 2 && stylesPro.blobAnimation,
+                      (page === 4 || page === 0) && stylesPro.blobHold,
                     ].join(" ")}
                   >
                     <Blob
