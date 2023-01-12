@@ -6,7 +6,7 @@ import ArrowRight from "../common/arrowRight";
 import { setBook } from "../../store/modules/book";
 import { useDispatch, useSelector } from "react-redux";
 import { GoMarkGithub, GoMail } from "react-icons/go";
-import { ReactComponent as Reservation } from "../../images/blob.svg";
+import { ReactComponent as Blob } from "../../images/blob.svg";
 
 // window.onload = function () {
 //   document
@@ -393,10 +393,10 @@ const Prologue = () => {
               <div className={stylesPro.page3}>
                 {/* 글자 */}
                 <div className={stylesPro.page3Contents}>
-                  <span>
-                    난 이미 물을 쏟아 버렸는지도 모르고, 주워 담을 생각조차 못
-                    했다.
-                  </span>
+                  <p>
+                    이미 물을 쏟아 버렸는지도 모르고, 주워 담을 생각조차 못 했던
+                    2018년.
+                  </p>
                 </div>
 
                 {/* 컵 */}
@@ -428,14 +428,6 @@ const Prologue = () => {
                     ></div>
                   </div>
                 </div>
-
-                {/* 컵에서 흘러내린 물 */}
-                {/* <div
-                  className={[
-                    stylesPro.spil,
-                    page === 2 && stylesPro.spilAnimation,
-                  ].join(" ")}
-                ></div> */}
               </div>
             </div>
 
@@ -454,10 +446,15 @@ const Prologue = () => {
               <div className={styles.pageRotate}>
                 <div className={stylesPro.page2}>
                   {/* 물 웅덩이 */}
-                  <div className={stylesPro.blobContainer}>
-                    <Reservation
-                      width="30vw"
-                      height="32vw"
+                  <div
+                    className={[
+                      stylesPro.blobContainer,
+                      page === 2 && stylesPro.blobAnimation,
+                    ].join(" ")}
+                  >
+                    <Blob
+                      width="20vw"
+                      height="20vw"
                       className={stylesPro.blob}
                     />
                   </div>
@@ -466,7 +463,7 @@ const Prologue = () => {
                   <div className={stylesPro.page2Contents}>
                     <p>엎질러진 물은</p>
                     <p>다시</p>
-                    <p>주워담을 수 없다</p>
+                    <p>주워 담을 수 없다</p>
                   </div>
                 </div>
               </div>
